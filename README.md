@@ -5,7 +5,7 @@ RestFilter
 
 ### Usage in code:
 
-    $Filter->init($_GET, $escaper, [...]); $whereClause = $filter->getFilter();
+    $Filter->init($tableName, $_GET, $escaper, [...]); $whereClause = $filter->getFilter();
 
 ### Usage in GET-queries:
 

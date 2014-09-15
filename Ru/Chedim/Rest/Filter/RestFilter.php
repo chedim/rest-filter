@@ -33,19 +33,22 @@ class RestFilter
     private $compiled;
     private $allowed_fields = null;
     private $disallowed_fields = null;
+    private $table = null;
     /**
      * @var Escaper
      */
     private $escaper;
 
     /**
+     * @param $table name of the filtering table
      * @param $source $_GET filter
      * @param Escaper $escaper Class that escapes values and fields
      * @param null $allowed_fields optional list of allowed in filter fields
      * @param null $disallowed_fields
      */
-    public function init($source, Escaper $escaper, $allowed_fields = null, $disallowed_fields = null)
+    public function init($table, $source, Escaper $escaper, $allowed_fields = null, $disallowed_fields = null)
     {
+        $this->table = $table;
         $this->source = $source;
         $this->escaper = $escaper;
         $this->allowed_fields = $allowed_fields;
@@ -105,7 +108,7 @@ class RestFilter
             } else {
                 $arguments = $this->escaper->value($arguments);
             }
-            return '(' . $this->{$method}($field, $arguments) . ')';
+            return '(' . $this->{$method}($this->table.'.'.$field, $arguments) . ')';
         } else {
             // TODO: throw valid Exception
             throw new \Exception("Filter " . $command . " not supported");
