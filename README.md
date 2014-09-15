@@ -34,7 +34,7 @@ Examples:
 
 ## Available commands: 
 
-| Section | Command | Arguments in JSON | SQL-equivalent  | 
+| Section | Command | Arguments | SQL-equivalent  | 
 |-----|---------|------------|----|-----|
 | Comparison: | | | 
 | | field:eq= | mixed x | field = x |
