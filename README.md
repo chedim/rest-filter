@@ -3,19 +3,32 @@ RestFilter
 
  This class provides safe conversion of GET-filters to SQL WHERE-CLAUSE
 
-### Usage in code:
+## Usage in code:
+***
 
-    $Filter->init($tableName, $_GET, $escaper, [...]); $whereClause = $filter->getFilter();
+```php
+    $Filter->init($tableName, $_GET, $escaper, [...]);
+    $whereClause = $filter->getFilter();
 
-### Usage in GET-queries:
+## Usage in GET-queries:
+***
 
 ####  Overall Syntax:
 
       /items?field1:command1=arguments1&field2:command2=arguments2...fieldN:commandN=argumentsN
 
-####  Select all items with id = 2 (result clause: items.id = 2):
+Select all items with id = 2:
+***
 
-      /items?id=2 OR /items?id:eq=2
+$$    /items?id=2
+
+OR:
+
+    /items?id:eq=2
+
+Result:
+
+    items.id = 2
 
 ####  Select all items with id > 2:
 
