@@ -217,6 +217,17 @@ class RestFilter
     }
 
     /**
+     * @Arguments: list of values (passed as array) that must not be in result set
+     * @param $field
+     * @param $value
+     * @return string
+     */
+    private function commandNotin($field, $value)
+    {
+        return $field . ' NOT IN ('.implode(', ', $value).')';
+    }
+
+    /**
      * @Arguments: minimal and maximum+1 numbers, values between which should be in result set
      * @param $field
      * @param $value
@@ -265,6 +276,27 @@ class RestFilter
      */
     private function commandGt($field, $value) {
         return $field . ' > ' . $value;
+    }
+
+    /**
+     * @Arguments: value to compare with LTE operation
+     * @param $field
+     * @param $value
+     * @return string
+     */
+    private function commandLte($field, $value)
+    {
+        return $field . ' <= '.$value;
+    }
+
+    /**
+     * @Arguments: value to compare with LT operation
+     * @param $field
+     * @param $value
+     * @return string
+     */
+    private function commandLt($field, $value) {
+        return $field . ' < ' . $value;
     }
 
     /**
