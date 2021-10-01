@@ -35,7 +35,7 @@ Examples:
 ## Available commands: 
 
 | Section | Command | Arguments | SQL-equivalent  | 
-|-----|---------|------------|----|-----|
+|-----|---------|------------|----|
 | Comparison: | | | 
 | | field:eq= | mixed x | field = x |
 | | field:not= | mixed x | field != x |
